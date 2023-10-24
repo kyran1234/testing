@@ -13,23 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Create a Zip package 🐙
-        uses: OctopusDeploy/create-zip-package-action@v3
-        with:
-          package_id: DemoPackage
-          version: 1.0.0
-          output_folder: ./gitgit/packing
-          base_path: ./gitgit/hello
-          files: '**/*.*'
-      
-      - name: Configure Git
-        run: |
-          git config --global user.name "kryan1234"
-          git config --global user.email "3298665635@qq.com"
-      
-      - name: Push Package to Main Branch
-        run: |
-          git checkout main
-          git add ./gitgit/packing
-          git commit -m "Add package from dev branch"
-          git push origin main
+      - name: Zip Deploy
+
+        uses: mkyai/zip-deploy@v1.0.7
+       with:
+   
+       webhook: # optional
+   
+       secret: # optional
+    
