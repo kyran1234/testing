@@ -1,4 +1,5 @@
 
+
 name: Push Package to Main Branch
 
 on:
@@ -11,13 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+   
       - name：checkout
       - uses: actions/checkout@v4
        with:
        sparse-checkout: |
                         .github
-                         packing
+                         /packing/      -
+      - name： path
+        uses： pwd
 
+       
       - name: Create a Zip package 🐙
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
