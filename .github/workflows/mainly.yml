@@ -15,6 +15,11 @@ jobs:
   # You may pin to the exact commit or the version.
   # uses: mkyai/zip-deploy@251aed0fae5df741e8ed2dca9ae94d54b7273864
   uses: mkyai/zip-deploy@v1.0.7
+  run: |
+    cd dist
+    zip -r code.zip .
+    curl -X POST -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" -F "zipFile=@code.zip" dev
+
   with:
     # Deployment webhook to handle @code.zip file
     webhook: # optional
