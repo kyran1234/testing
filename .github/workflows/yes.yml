@@ -16,10 +16,10 @@ jobs:
         with:
           sparse-checkout: |
             .github
-             packing     -
+             ./packing     -
       
        - name: Print working directory
-        run: echo "Current working directory: $(pwd)"
+         run: echo "Current working directory: $(pwd)"
 
        
       - name: Create a Zip package 🐙
