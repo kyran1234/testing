@@ -9,10 +9,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          sparse-checkout: .
+    steps：
+    -name: path
+    -uses: pwd
+    
+     - name：checkout
+     - uses: actions/checkout@v4
+       with:
+         sparse-checkout: |
+                         .github
+                          src
 
       - name: deploy
         uses: mkyai/zip-deploy@v1
