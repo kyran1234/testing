@@ -18,7 +18,7 @@ jobs:
         with:
           package_id: DemoPackage
           version: 1.0.0
-          output_folder: ./packaging
+          output_folder: ./packing
           base_path: ./hello
           files: '**/*.*'
       
@@ -30,6 +30,6 @@ jobs:
       - name: Push Package to Main Branch
         run: |
           git checkout main
-          git add ./packaging
+          git add ./packing
           git commit -m "Add package from dev branch"
           git push origin main
