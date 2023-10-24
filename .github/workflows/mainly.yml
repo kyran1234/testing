@@ -9,20 +9,13 @@ jobs:
   push_package:
     runs-on: ubuntu-latest
     
-    steps:
-
-      - name: Zip Deploy
-  # You may pin to the exact commit or the version.
-  # uses: mkyai/zip-deploy@251aed0fae5df741e8ed2dca9ae94d54b7273864
-        uses: mkyai/zip-deploy@v1.0.7
-        run: |
-           cd dist
-           zip -r code.zip .
-            curl -X POST -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" -F "zipFile=@code.zip" dev
-
-  with:
-    # Deployment webhook to handle @code.zip file
-    webhook: # optional
-    # Webhook secret for request verification
-    secret: # optional
-    
+steps:
+  - name: Zip Deploy
+    uses: mkyai/zip-deploy@v1.0.7
+    with:
+      webhook: # optional
+      secret: # optional
+    run: |
+      cd dist
+      zip -r code.zip .
+      curl -X POST -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" -F "zipFile=@code.zip" https://api.github.com/repos/kryan1234/testing/releases/a6e48e9/assets?name=code.zip
