@@ -10,10 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: deploy
         uses: mkyai/zip-deploy@v1
         with:
-          files: '/testing/packing/' # 替换为要部署的文件或文件夹的路径
+          files: '/kryan1234/testing/packing/' # 替换为要部署的文件或文件夹的路径
+         
