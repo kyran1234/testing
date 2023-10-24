@@ -10,15 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
-      - name: Zip Deploy
-
-        uses: mkyai/zip-deploy@v1.0.7
-       with:
-   
-       webhook: # optional
-   
-       secret: # optional
+  - name: Zip Deploy
+  # You may pin to the exact commit or the version.
+  # uses: mkyai/zip-deploy@251aed0fae5df741e8ed2dca9ae94d54b7273864
+  uses: mkyai/zip-deploy@v1.0.7
+  with:
+    # Deployment webhook to handle @code.zip file
+    webhook: # optional
+    # Webhook secret for request verification
+    secret: # optional
     
