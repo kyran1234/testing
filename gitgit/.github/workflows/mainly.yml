@@ -12,24 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Create a Zip package 🐙
-        uses: OctopusDeploy/create-zip-package-action@v3
+      - name: Zip Deploy
+  # You may pin to the exact commit or the version.
+  # uses: mkyai/zip-deploy@251aed0fae5df741e8ed2dca9ae94d54b7273864
+        uses: mkyai/zip-deploy@v1.0.7
         with:
-          package_id: DemoPackage
-          version: 1.0.0
-          output_folder: ./gitgit/packaging
-          base_path: ./gitgit/hello
-          files: '**/*.*'
+    # Deployment webhook to handle @code.zip file
+        webhook: # optional
+    # Webhook secret for request verification
+        secret: # optional
       
-      - name: Configure Git
-        run: |
-          git config --global user.name "kryan1234"
-          git config --global user.email "3298665635@qq.com"
-      
-      - name: Push Package to Main Branch
-        run: |
-          git checkout main
-          git add ./gitgit/packaging
-          git commit -m "Add package from dev branch"
-          git push origin main
+        
