@@ -10,12 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     
 steps:
-  - name: Zip Deploy
-    uses: mkyai/zip-deploy@v1.0.7
-    with:
-      webhook: # optional
-      secret: # optional
-    run: |
+   - uses: actions/checkout@v4
+     with:
+        sparse-checkout: .
+   - name: Zip Deploy
+     uses: mkyai/zip-deploy@v1.0.7
+     with:
+       webhook: # optional
+       secret: # optional
+     run: |
       cd dist
       zip -r code.zip .
       curl -X POST -H "Authorization: ${{ secrets.GITHUB_TOKEN }}" -F "zipFile=@code.zip" https://api.github.com/repos/kryan1234/testing/releases/a6e48e9/assets?name=code.zip
