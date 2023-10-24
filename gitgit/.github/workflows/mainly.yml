@@ -12,10 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          sparse-checkout: .
 
       - name: deploy
         uses: mkyai/zip-deploy@v1
         with:
           files: '/kryan1234/testing/packing/' # 替换为要部署的文件或文件夹的路径
-         
