@@ -11,14 +11,15 @@ jobs:
     
     steps:
    
-      - name：checkout
-      - uses: actions/checkout@v4
-       with:
-       sparse-checkout: |
-                        .github
-                         /packing/      -
-      - name： path
-        uses： pwd
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github
+            /packing/      -
+      
+      - name: path
+        uses: pwd
 
        
       - name: Create a Zip package 🐙
